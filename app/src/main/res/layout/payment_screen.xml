@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/pay_bootom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/Light_grey">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paymentMethod"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/extra_small_size"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/ic_credit_card"
+                    android:padding="5dp"
+                    android:id="@+id/txtPayMethod"
+                    android:drawableRight="@drawable/ic_down_arrow" />
+
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/payment_method_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon"/>
+                <View
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lime_grey"/>
+                <CheckBox
+                    android:layout_below="@+id/txtTotalPayValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/txtUseWallet"
+                    android:textSize="@dimen/extra_small_size"
+                    android:onClick="onCheckboxClicked"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/check_wallet"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"/>
+                <CheckBox
+                    android:textSize="@dimen/extra_small_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/txtUsepoint"
+                    android:layout_marginTop="10dp"
+                    android:onClick="onCheckboxClicked"
+                    android:id="@+id/check_points"
+                    android:gravity="center_vertical"/>
+                <CheckBox
+                    android:layout_below="@+id/txtPointValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/txtPayOnline"
+                    android:onClick="onCheckboxClicked"
+                    android:textSize="@dimen/extra_small_size"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/check_pay_online"
+                    android:gravity="center_vertical"/>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lime_grey"/>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/Light_grey">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+                    <ImageView
+                        android:padding="3dp"
+                        android:layout_width="90dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/sadad"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/paymentSADAD"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/extra_small_size"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"
+                        android:padding="5dp"
+                        android:id="@+id/txtPaywithsadas"
+                        android:drawableRight="@drawable/ic_down_arrow" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/Light_grey">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtTotalPay"
+                        android:textSize="@dimen/small_size"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="2dp"
+                        android:gravity="center_horizontal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="SAR 2,132.66"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:paddingBottom="3dp"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FF7ABF7A"
+                android:padding="10dp"
+                android:textSize="@dimen/extra_small_size"
+                android:text="@string/txtPay"/>
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lime_grey"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/pay_bootom"
+        layout="@layout/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

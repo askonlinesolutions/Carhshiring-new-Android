@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_suplier">
+        <item>Sixt</item>
+        <item>Europcar</item>
+        <item>keddy by Europcar</item>
+        <item>Thrifty UAE</item>
+        <item>Budget UAE</item>
+        <item>Alamo</item>
+        <item>Budget</item>
+        <item>Avis</item>
+        <item>Hertz</item>
+    </string-array>
+
+    <string-array name="filter_features">
+        <item>4+ Doors</item>
+    </string-array>
+
+    <string-array name="filter_package">
+        <item>SilverPackage</item>
+        <item>BasePackage</item>
+    </string-array>
+
+    <string-array name="filter_insurance">
+        <item>Collision Damage Waiver</item>
+        <item>Theft Protectin</item>
+    </string-array>
+</resources>

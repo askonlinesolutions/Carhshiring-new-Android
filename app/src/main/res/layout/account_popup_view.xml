@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:background="@color/redStrong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancellation Charge 200 "
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/txtCancelChagre"
+        android:textSize="@dimen/small_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select one "
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:id="@+id/tctSelect"
+        android:textSize="@dimen/large_size"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <RadioButton
+            android:id="@+id/radio_wallet"
+            android:layout_width="0dp"
+            android:checked="true"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Wallet"
+            android:layout_gravity="center"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radio_account"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Bank Account"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginRight="5dp"
+            android:id="@+id/account_btnsubit"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/pf_10dp_space"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/account_btnCancel"
+            android:background="@color/lime_grey"
+            android:textColor="@color/white"
+            android:padding="@dimen/pf_10dp_space"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+</LinearLayout>

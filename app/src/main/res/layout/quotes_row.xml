@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    style="@style/simpleRectangle" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:id="@+id/from_layout"
+            android:layout_margin="5dp"
+            android:padding="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.50">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="From"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Delhi"
+                    android:id="@+id/txt_quoteaddress_pick"
+                    android:textColor="@color/redStrong"
+                    style="@style/simpleRectangle"
+                    android:padding="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.50"
+                android:layout_marginLeft="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="To"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Noida"
+                    android:id="@+id/txt_quoteaddress_drop"
+                    android:textColor="@color/redStrong"
+                    style="@style/simpleRectangle"
+                    android:padding="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/redStrong">
+            <TextView
+                android:id="@+id/txtPicktimeQuote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="20/5/2017 at 10:00PM"
+                android:textSize="@dimen/small_size"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:padding="5dp"/>
+            <TextView
+                android:id="@+id/txtdroptimeQuote"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="20/5/2017 at 10:00PM"
+                android:textSize="@dimen/small_size"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:padding="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Light_grey" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        style="@style/simpleRectangle">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toyota Innova Diesel"
+            android:gravity="center"
+            android:textColor="#b72025"
+            android:id="@+id/txtModelNameQuote"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="or Similar"
+            android:gravity="center"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imgCar_quote"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/txt_quoterate"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="bottom|start"
+                android:background="#b72025"
+                android:textColor="#fff"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="3dp"
+                android:text="INR 5,540.64"
+                android:textStyle="bold"
+                android:gravity="left|center|top"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="13dp"
+                android:visibility="gone"
+                android:id="@+id/txtPointQuote"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom|start"
+                android:text="Points Collected: 356" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:text="@string/delete"
+                android:id="@+id/quotes_cancel"
+                android:background="@color/lime_grey"
+                android:textColor="@color/white"
+                android:textSize="@dimen/small_size"
+                android:layout_gravity="left|bottom"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:visibility="visible"
+                android:text="Book Now"
+                android:id="@+id/quotes_btn_book_now"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+                android:textSize="@dimen/small_size"
+                android:layout_gravity="right|bottom"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_my_bookings"
+                    android:scaleType="centerInside"
+                    />
+
+                <TextView
+
+                    android:id="@+id/textView3"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/bookingreferencenumber" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/txt_Quote_refnumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center|bottom"
+                android:text="3985621866"
+                android:textColor="#b72025" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

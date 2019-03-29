@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_search_car"
+            android:icon="@drawable/ic_sb_search_car"
+            android:title="@string/action_search_car" />
+        <item
+            android:id="@+id/action_booking"
+            android:icon="@drawable/ic_sb_bookings"
+            android:title="@string/action_my_booking" />
+        <item
+            android:id="@+id/action_accounts"
+            android:icon="@drawable/ic_sb_accounts"
+            android:title="@string/action_accounts" />
+        <item
+            android:id="@+id/action_about_us"
+            android:icon="@drawable/ic_sb_about_us"
+            android:title="@string/action_about_us" />
+        <item
+            android:id="@+id/action_contact_us"
+            android:icon="@drawable/ic_sb_contact_us"
+            android:title="@string/action_contact_us" />
+        <item
+            android:id="@+id/action_convert_currency"
+            android:icon="@drawable/ic_about"
+            android:title="@string/action_convert_currency" />
+
+        <item
+            android:id="@+id/action_language"
+            android:icon="@drawable/ic_language"
+            android:title="@string/action_language" />
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+
+    </group>
+
+
+
+</menu>

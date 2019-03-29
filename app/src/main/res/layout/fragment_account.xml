@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="18dp"
+            android:layout_gravity="center_vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/ll_booking"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal"
+                style="@style/GreyBorderButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_my_bookings"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/ic_" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mybooking"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/redStrong" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_profile"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal"
+                style="@style/GreyBorderButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_account"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/ic_profile" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myProfile"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/redStrong" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_change_password"
+                android:layout_marginTop="9dp"
+                android:orientation="horizontal"
+                style="@style/GreyBorderButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:src="@drawable/ic_password"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_your_password"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/redStrong"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/ll_acccountdetails"
+                android:layout_marginTop="9dp"
+                android:orientation="horizontal"
+                style="@style/GreyBorderButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_account_details" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accountdetails"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:layout_gravity="left|center_vertical"
+                    android:textColor="@color/redStrong"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="9dp"
+                android:orientation="horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_point_thumb"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/points"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:id="@+id/fragment_account_point"
+                    android:layout_gravity="center"
+                    android:textColor="@color/redStrong"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_point_thumb"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wallet_amnt"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:id="@+id/fragment_account_wallet"
+                    android:layout_gravity="center"
+                    android:textColor="@color/redStrong"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <include layout="@layout/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+    </include>
+
+</RelativeLayout>

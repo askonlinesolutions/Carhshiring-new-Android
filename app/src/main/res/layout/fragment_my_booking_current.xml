@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/current_booking_linear">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/previous_booking_refresh_layout"
+            android:layout_height="match_parent">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <android.support.v7.widget.RecyclerView
+                   android:layout_above="@+id/qoutesbottom"
+                   android:layout_width="match_parent"
+                   android:visibility="gone"
+                   android:layout_height="match_parent"
+                   android:id="@+id/rec_prev_booki_list">
+               </android.support.v7.widget.RecyclerView>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="center"
+                   android:id="@+id/rec_prev_booki_no_data"
+                   android:gravity="center"
+                   android:visibility="gone"
+                   android:orientation="vertical">
+
+                   <TextView
+                       style="@style/simpleRectangle"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_margin="18dp"
+                       android:gravity="center"
+                       android:padding="15dp"
+                       android:textSize="18sp"
+                       android:text="@string/BookingCurrent"
+                       android:textColor="@color/redStrong" />
+
+                   <Button
+                       style="@style/GreyBorderButtonTheme"
+                       android:id="@+id/bt_previousbooking"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="20dp"
+                       android:padding="15dp"
+                       android:text="@string/Searchnow" />
+
+               </LinearLayout>
+           </LinearLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qoutesbottom"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true">
+        <include layout="@layout/bottom_toolbar"/>
+    </LinearLayout>
+
+</RelativeLayout>

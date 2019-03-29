@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_cross"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:id="@+id/txtMsg"
+        android:textColor="@color/black"
+        android:text="we are facing internet communication error. your booking was in process and may completed. please check your booking."/>
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="90dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/error_dialog_txtOk"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:background="@color/colorPrimary"/>
+
+</LinearLayout>

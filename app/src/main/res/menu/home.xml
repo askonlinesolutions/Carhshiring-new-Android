@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search_car"
+        android:orderInCategory="100"
+        android:title="@string/action_search_car"
+        android:icon="@drawable/icn_search_white"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_booking"
+        android:orderInCategory="100"
+        android:icon="@drawable/icn_bookings"
+        android:title="@string/action_my_booking"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_accounts"
+        android:orderInCategory="100"
+        android:icon="@drawable/icn_account"
+        android:title="@string/action_accounts"
+        app:showAsAction="ifRoom" />
+</menu>

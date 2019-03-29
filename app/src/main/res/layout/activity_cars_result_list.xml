@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cars_result_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.home.CarsResultListActivity">
+
+    <LinearLayout
+        android:id="@+id/bottomContainer"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_marginEnd="2dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/filter"
+            android:textColor="@color/white"
+            style="@style/BlueButtonTheme"
+            android:onClick="openSelectionFilter"
+
+            />
+        <Button
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/search_by_map"
+            android:textColor="@color/white"
+            style="@style/BlueButtonTheme"
+            android:onClick="openSelectionSortedBy"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/journey_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:drawableStart="@drawable/ic_address"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/txtPlaceName"
+            android:text="New Delhi Downtown"
+            android:textStyle="bold"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_two_way"/>
+        <TextView
+            android:drawableStart="@drawable/ic_address"
+            android:drawablePadding="10dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/txtPlaceName_drop"
+            android:text="New Delhi Downtown"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:background="@drawable/border_bg"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:background="@drawable/border_bg"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Fri,27 Jan,2017\n10 AM"
+                    android:id="@+id/tvFromDT"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/border_bg"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Fri,27 Jan,2017\n10 AM"
+                    android:id="@+id/tvToDT"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/journey_detail_view"
+        android:layout_above="@id/bottomContainer"
+        android:id="@+id/recycler_search_cars"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"  />
+
+</RelativeLayout>

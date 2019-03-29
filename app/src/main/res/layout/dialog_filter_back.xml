@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250sp"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_dialog_apply_filter_changes"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="@string/exit"
+            android:textSize="@dimen/small_size"
+            android:textColor="@color/white"
+            android:padding="5dp"
+            style="@style/GreenButtonTheme"
+            android:gravity="center"
+            android:onClick="dialog_filter_back_exit"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textSize="@dimen/small_size"
+            style="@style/BlueButtonTheme"
+            android:textColor="@color/white"
+            android:text="@string/filter_dialog_apply_filter"
+            android:onClick="dialog_filter_back_apply_filter"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/qoutesbottom"
+        android:layout_alignParentTop="true"
+        android:layout_margin="15dp"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                style="@style/simpleRectangle">
+                <ImageView
+                    android:id="@+id/img_car"
+                    android:layout_width="143dp"
+                    android:layout_height="92dp"
+                    android:src="@drawable/ic_car_img"
+                    />
+                <TextView
+                    android:id="@+id/txt_carname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="15dp"
+                    android:text="Toyota Innova Diesel\nor Similar\n\nINR 5,560.64" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txtExtra"
+                android:textColor="@color/redStrong"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:padding="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/simpleRectangle"
+                android:orientation="vertical">
+             <android.support.v7.widget.RecyclerView
+                 android:id="@+id/recy_extra"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+
+             </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qoutesbottom"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+        <include layout="@layout/bottom_toolbar"
+            ></include></LinearLayout>
+</RelativeLayout>

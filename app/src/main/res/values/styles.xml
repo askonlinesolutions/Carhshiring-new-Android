@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="buttondesign">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="BlueButtonTheme" parent="buttondesign">
+        <item name="android:background">@drawable/blue_button_bg</item>
+    </style>
+
+    <style name="GreenButtonTheme" parent="buttondesign">
+        <item name="android:background">@drawable/green_button_bg</item>
+    </style>
+
+    <style name="simpleRectangle">
+        <item name="android:background">@drawable/simplerectangle</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="SimpleSpinnerTheme" >
+        <item name="android:background">@drawable/simple_spinner_arrow</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="SpinnerTheme" >
+        <item name="android:background">@drawable/spinner_arrow</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="AppTheme.Green">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/black</item>
+    </style>
+    <style name="GreyBorderButtonTheme" parent="buttondesign">
+        <item name="android:background">@drawable/buttoncurve</item>
+    </style>
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+</resources>

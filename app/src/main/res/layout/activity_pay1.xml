@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.home.PayActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/paymentMethod"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/extra_large_size"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/paymentMethod"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/extra_small_size"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_credit_card"
+                android:background="@color/Light_grey"
+                android:padding="5dp"
+                android:id="@+id/txtPayMethod"
+                android:drawableRight="@drawable/ic_down_arrow"
+                android:layout_margin="10dp"/>
+
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/txtTotalPayView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtPayTotal"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/txtTotalPayValue"
+                        android:layout_width="match_parent"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/large_size"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtEarnedPoint"
+                    android:layout_below="@+id/txtTotalPayView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get 200 points"
+                    android:paddingTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/redStrong"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/txtEarnedPoint"
+                    android:id="@+id/coupon_layout"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_pay_apply_coupon"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/large_size"
+                        android:textColor="#d1882a"
+                        android:textStyle="bold"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp">
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_bg"
+                            android:hint="@string/activity_pay_code"
+                            android:singleLine="true"
+                            android:imeOptions="actionDone"
+                            android:padding="5dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:id="@+id/activity_pay_edtCoupon"
+                            android:textSize="@dimen/small_size"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/activity_pay_btnApply"
+                            android:background="@color/colorPrimaryDark"
+                            android:text="@string/activity_pay_apply"
+                            android:gravity="center_horizontal"
+                            android:layout_weight=".1"
+                            android:layout_marginStart="20dp"
+                            android:textColor="@color/white"
+                            android:padding="8dp"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_pay_coupon_value"
+                        android:visibility="gone"
+                        android:paddingTop="5dp"
+                        android:id="@+id/activity_pay_txtCouponValue"
+                        android:textSize="@dimen/small_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/activity_pay_full_pro_layout"
+                        android:background="@color/Light_grey"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/activity_pay_txtFullProtectionAmt"
+                            android:text="@string/activity_pay_full_protection_value"
+                            android:gravity="center_horizontal"
+                            android:textAllCaps="true"
+                            android:textColor="#d1882a"
+                            android:padding="8dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/activity_pay_txtFullProtectionAmtValue"
+                            android:text=" SAR  5.00"
+                            android:gravity="end"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:padding="8dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/coupon_layout"
+                    android:orientation="vertical">
+                    <CheckBox
+                        android:visibility="gone"
+                        android:textSize="@dimen/extra_small_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:text="@string/txtUsepoint"
+                        android:onClick="onCheckboxClicked"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/check_points"
+                        android:gravity="center_vertical"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:visibility="gone"
+                            android:paddingStart="5dp"
+                            android:id="@+id/txtPointValue"
+                            android:textSize="@dimen/extra_small_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(Available balance is 50)" />
+                        <TextView
+                            android:visibility="gone"
+                            android:paddingLeft="5dp"
+                            android:gravity="right"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:id="@+id/txtPointValueAmt"
+                            android:textSize="@dimen/extra_small_size"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(Available balance is 50)" />
+
+                    </LinearLayout>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:text="@string/txtUseWallet"
+                        android:textSize="@dimen/extra_small_size"
+                        android:onClick="onCheckboxClicked"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
+                        android:id="@+id/check_wallet"
+                        android:gravity="center_vertical"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:paddingStart="5dp"
+                            android:id="@+id/txtWaletValue"
+                            android:textSize="@dimen/extra_small_size"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(Available balance is 50)" />
+                        <TextView
+                            android:textAllCaps="true"
+                            android:id="@+id/txtWaletValueAmt"
+                            android:textSize="@dimen/extra_small_size"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:gravity="end"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_height="wrap_content"
+                            android:text="(Available balance is 50)" />
+
+                    </LinearLayout>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                        android:text="@string/txtPayOnline"
+                        android:onClick="onCheckboxClicked"
+                        android:textSize="@dimen/extra_small_size"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
+                        android:id="@+id/check_pay_online"
+                        android:gravity="center_vertical"/>
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/txtPayOnlineDefault"
+                android:text="@string/activity_pay_note_by_default_payfort_method_is_selected"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtPay"
+                android:background="@color/colorPrimaryDark"
+                android:text="@string/txtPayNow"
+                android:textColor="@color/white"
+                android:padding="8dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txtTotalPayableAmt"
+                android:textAllCaps="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/large_size"
+                android:id="@+id/activity_pay_txtPayAmt"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/large_size"
+                android:id="@+id/activity_pay_txtExtra"
+                android:textColor="@color/redStrong" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

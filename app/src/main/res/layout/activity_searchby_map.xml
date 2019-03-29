@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.carshiring.activities.home.SearchbyMapActivity">
+
+    <fragment
+        android:layout_above="@+id/below_toolbar"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_alignParentBottom="true"
+        android:id="@+id/below_toolbar"
+        android:background="@color/bottom_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <LinearLayout
+            android:id="@+id/bottomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/activity_search_by_map_show_by_list"
+                android:onClick="showByList"
+                android:textColor="@color/white"
+                style="@style/BlueButtonTheme" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+</RelativeLayout>

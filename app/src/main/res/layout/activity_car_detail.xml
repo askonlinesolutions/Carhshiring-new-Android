@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carshiring.activities.home.CarDetailActivity">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/cardet_Tab"
+        android:layout_height="56dp"
+        android:layout_width="match_parent">
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/cardet_viewpager"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/cardet_Tab"
+        android:layout_above="@+id/qoutesbottom">
+
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qoutesbottom"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+        <include layout="@layout/bottom_toolbar"
+            ></include></LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_above="@+id/tvBagSp"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bag"/>
+    <TextView
+
+        android:layout_alignParentBottom="true"
+        android:id="@+id/tvBagSp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7 seats"
+        android:textSize="10sp" />
+</RelativeLayout>

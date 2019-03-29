@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/marker_view_img"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/marker_view_supplier_name"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:id="@+id/marker_view_supplier_address"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtCarPrice"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAR 200"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/large_size"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/marker_view_supplier_price"
+        android:gravity="center"/>
+
+</LinearLayout>

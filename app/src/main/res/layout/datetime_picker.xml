@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:background="@drawable/buttoncurve"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/lblDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Pick-up Date"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+
+        />
+
+    <TextView
+        android:id="@+id/tvDateDayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:text="27"
+
+        />
+
+    <TextView
+
+        android:id="@+id/tvDateDayNameWithMonthName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:textColor="@color/black"
+        android:text="Mon | November"
+
+        />
+
+
+    <TextView
+        android:id="@+id/tvFullTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Time : 10:00 AM"
+        android:textColor="#fff"
+        android:background="#3dbc47"/>
+
+</LinearLayout>
+

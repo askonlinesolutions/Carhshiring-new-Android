@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_gravity="center"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="wrap_content">
+   <LinearLayout
+       android:layout_margin="10dp"
+       android:background="@color/Light_grey"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Price details "
+           android:textAllCaps="true"
+           android:layout_margin="10dp"
+           android:gravity="center"
+           android:textSize="@dimen/large_size"
+           android:id="@+id/price_detail_title"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:padding="@dimen/pf_5dp_space"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <TextView
+               android:id="@+id/txt_bookingdate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="20/5/2017 at 10:00PM"
+               android:textSize="@dimen/small_size"
+               android:textColor="@color/black"
+               android:padding="5dp"
+               tools:ignore="InefficientWeight" />
+           <TextView
+               android:id="@+id/txt_rate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="INR167.34"
+               android:textSize="@dimen/small_size"
+               android:textColor="@color/black"
+               android:padding="5dp"/>
+
+       </LinearLayout>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Full protection: 100"
+           android:id="@+id/txtFullProtection"
+           android:visibility="gone"
+           android:textColor="@color/black"
+           android:padding="@dimen/pf_5dp_space"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <TextView
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtCuoponValue"
+               android:text="Coupon value "
+               android:textColor="@color/black"
+               android:padding="5dp"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtCreditValueAmt"
+               android:text="Credit value "
+               android:visibility="gone"
+               android:textColor="@color/black"
+               android:padding="5dp"/>
+           <TextView
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtWalletValueAmt"
+               android:text="Wallet value "
+               android:textColor="@color/black"
+               android:padding="5dp"/>
+           <TextView
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtPointValueAmt"
+               android:text="Point value "
+               android:textColor="@color/black"
+               android:padding="5dp"/>
+
+
+       </LinearLayout>
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="35dp"
+           android:id="@+id/txtCancel"
+           android:text="Cancel"
+           android:background="@color/white"
+           android:layout_margin="10dp"
+           android:layout_gravity="right"
+           android:textColor="@color/black"
+           android:padding="5dp"/>
+   </LinearLayout>
+
+</LinearLayout>

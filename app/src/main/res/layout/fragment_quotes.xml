@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+ <android.support.v4.widget.SwipeRefreshLayout
+     android:layout_width="match_parent"
+     android:id="@+id/quote_refresh_layout"
+     android:layout_height="match_parent">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_gravity="center"
+       android:id="@+id/rec_prev_booki_no_data"
+       android:gravity="center"
+       android:visibility="gone"
+       android:orientation="vertical">
+
+    <TextView
+        style="@style/simpleRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:text="@string/BookingCurrent"
+        android:textColor="@color/redStrong" />
+
+    <Button
+        style="@style/GreyBorderButtonTheme"
+        android:id="@+id/bt_previousbooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:text="@string/Searchnow" />
+
+   </LinearLayout>
+
+   <android.support.v7.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/recy_quotes"
+       android:visibility="visible">
+
+   </android.support.v7.widget.RecyclerView>
+
+  </LinearLayout>
+
+ </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

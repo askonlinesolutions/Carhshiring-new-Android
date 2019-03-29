@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center_horizontal">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txtSearchACar"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22sp"
+                android:id="@+id/fragment_search_txtSearchCar" />
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:textAlignment="viewStart"
+                android:layout_marginTop="5dp"
+                android:id="@+id/fragment_search_imgCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_linecar"/>
+        </FrameLayout>
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/fragment_search_txtCheapCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="@string/txtFindCheapCar"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+        <CheckBox
+            android:visibility="visible"
+            android:id="@+id/chkUseCurrentLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="@string/txtUseMyLocation"/>
+        <EditText
+            android:id="@+id/et_pickup_location"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtPickUp"
+            android:drawablePadding="5dp"
+            android:textAlignment="viewStart"
+            android:drawableStart="@drawable/icn_search_black"
+            style="@style/GreyBorderButtonTheme"/>
+        <EditText
+            android:id="@+id/et_return_location"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtDropUp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/icn_search_black"
+            style="@style/GreyBorderButtonTheme"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:padding="8dp"
+            android:id="@+id/switchSameDestLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textAlignment="viewStart"
+            app:track="@drawable/switch_track"
+            android:thumb="@drawable/switch_thumb"
+            android:text="@string/switchRetrunSameLoc" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+
+                android:layout_centerInParent="true"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/dt_picker_journey"
+                    android:layout_margin="5dp"
+                    layout="@layout/datetime_picker"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+                <include
+                    android:id="@+id/dt_picker_returning"
+                    android:layout_margin="5dp"
+                    layout="@layout/datetime_picker"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <ImageButton
+                android:background="@drawable/arrow"
+                android:layout_centerInParent="true"
+                android:layout_width="50dp"
+                android:id="@+id/fragment_search_imgarrow"
+                android:layout_height="50dp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/et_driver_age"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:inputType="number"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/switchDriverAgebw"
+            style="@style/GreyBorderButtonTheme"/>
+        <android.support.v7.widget.SwitchCompat
+            android:padding="8dp"
+            android:id="@+id/switchDriverAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textAlignment="viewStart"
+            app:track="@drawable/switch_track"
+            android:thumb="@drawable/switch_thumb"
+            android:text="@string/switchDriverAgebw" />
+        <android.support.v7.widget.SwitchCompat
+            android:padding="8dp"
+            android:id="@+id/switchSearchByMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:visibility="gone"
+            android:textAlignment="viewStart"
+            app:track="@drawable/switch_track"
+            android:thumb="@drawable/switch_thumb"
+            android:text="@string/switchSearchMap" />
+
+        <TextView
+            android:id="@+id/btn_search_car"
+            style="@style/BlueButtonTheme"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:text="@string/search"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/icn_search_btn"
+            android:drawablePadding="10dp" />
+
+    </LinearLayout>
+</ScrollView>
+

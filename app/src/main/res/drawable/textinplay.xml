@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+   <item>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:top="3dp">
+            <shape android:shape="rectangle">
+                <corners android:radius="0dp"/>
+                <stroke android:color="@color/Light_grey" android:width="1dp"/>
+
+            </shape>
+        </item>
+    </layer-list>
+   </item>
+</selector>
