@@ -1085,14 +1085,11 @@ Sha request and response pharse
             @Override
             public void onFailure(okhttp3.Call call, final IOException e) {
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        progressDialog.dismiss();
-                        Log.d(TAG, "rakhi: "+e.getMessage());
-                        String msg = e.getMessage();
-                        Utility.message(getApplicationContext(), getResources().getString(R.string.no_internet_connection));
-                    }
+                runOnUiThread(() -> {
+                    progressDialog.dismiss();
+                    Log.d(TAG, "rakhi: "+e.getMessage());
+                    String msg = e.getMessage();
+                    Utility.message(getApplicationContext(), getResources().getString(R.string.no_internet_connection));
                 });
             }
 
@@ -1130,14 +1127,41 @@ Sha request and response pharse
                                             }*/
 
 
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            if (jsonObject.has("bookingStatus")){
-                                                try {
-                                                    if(jsonObject.getString("bookingStatus").equals("Confirmed")){
+                                    runOnUiThread(() -> {
+                                        if (jsonObject.has("bookingStatus")){
+                                            try {
+                                                if(jsonObject.getString("bookingStatus").equals("Confirmed")){
+                                                    try {
+                                                        String booking = jsonObject.getString("bookingId");
+                                                        if (lastPointid!=null){
+                                                            updatePointId(lastPointid,booking);
+                                                        }
+                                                        if (lastWalletId!=null){
+                                                            updateWalletId(lastWalletId,booking);
+                                                        }
+                                                        if (couponvalue==100){
+                                                            earnPoint="0.0";
+                                                            creditPoint(booking,user_id,earnPoint);
+                                                        } else {
+                                                            if (booking!=null&&booking.length()>0){
+                                                                creditPoint(booking,user_id,earnPoint);
+                                                            }
+                                                        }
+                                                        if (extraData!=null){
+                                                            extraData.clear();
+                                                        }
+                                                        Toast.makeText(Pay1Activity.this, "Booking success",
+                                                                Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(Pay1Activity.this, ThankYou.class).putExtra("bookingid", booking));
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+
+                                                } else if (jsonObject.getString("bookingStatus").equals("In process")){
+                                                    if (jsonObject.has("error_msg")){
                                                         try {
-                                                            String booking = jsonObject.getString("bookingId");
+                                                            JSONObject jsonObject1 = jsonObject.getJSONObject("response");
+                                                            String booking = jsonObject1.getString("booking_id");
                                                             if (lastPointid!=null){
                                                                 updatePointId(lastPointid,booking);
                                                             }
@@ -1155,59 +1179,29 @@ Sha request and response pharse
                                                             if (extraData!=null){
                                                                 extraData.clear();
                                                             }
-                                                            Toast.makeText(Pay1Activity.this, "Booking success",
-                                                                    Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(appGlobal, ""+jsonObject.has("error_msg"), Toast.LENGTH_SHORT).show();
+
                                                             startActivity(new Intent(Pay1Activity.this, ThankYou.class).putExtra("bookingid", booking));
                                                         } catch (JSONException e) {
                                                             e.printStackTrace();
                                                         }
-
-                                                    } else if (jsonObject.getString("bookingStatus").equals("In process")){
-                                                        if (jsonObject.has("error_msg")){
-                                                            try {
-                                                                JSONObject jsonObject1 = jsonObject.getJSONObject("response");
-                                                                String booking = jsonObject1.getString("booking_id");
-                                                                if (lastPointid!=null){
-                                                                    updatePointId(lastPointid,booking);
-                                                                }
-                                                                if (lastWalletId!=null){
-                                                                    updateWalletId(lastWalletId,booking);
-                                                                }
-                                                                if (couponvalue==100){
-                                                                    earnPoint="0.0";
-                                                                    creditPoint(booking,user_id,earnPoint);
-                                                                } else {
-                                                                    if (booking!=null&&booking.length()>0){
-                                                                        creditPoint(booking,user_id,earnPoint);
-                                                                    }
-                                                                }
-                                                                if (extraData!=null){
-                                                                    extraData.clear();
-                                                                }
-                                                                Toast.makeText(appGlobal, ""+jsonObject.has("error_msg"), Toast.LENGTH_SHORT).show();
-
-                                                                startActivity(new Intent(Pay1Activity.this, ThankYou.class).putExtra("bookingid", booking));
-                                                            } catch (JSONException e) {
-                                                                e.printStackTrace();
-                                                            }
-                                                        }
-                                                    } else if (jsonObject.getString("bookingStatus").equals("Fail")){
-                                                        if (jsonObject.has("error_msg")){
-                                                            runOnUiThread(new Runnable() {
-                                                                @Override
-                                                                public void run() {
-                                                                    try {
-                                                                        setErrorDialog(jsonObject.getString("error_msg"));
-                                                                    } catch (JSONException e) {
-                                                                        e.printStackTrace();
-                                                                    }
-                                                                }
-                                                            });
-                                                        }
                                                     }
-                                                } catch (JSONException e) {
-                                                    e.printStackTrace();
+                                                } else if (jsonObject.getString("bookingStatus").equals("Fail")){
+                                                    if (jsonObject.has("error_msg")){
+                                                        runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                try {
+                                                                    setErrorDialog(jsonObject.getString("error_msg"));
+                                                                } catch (JSONException e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                                            }
+                                                        });
+                                                    }
                                                 }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
                                             }
                                         }
                                     });
