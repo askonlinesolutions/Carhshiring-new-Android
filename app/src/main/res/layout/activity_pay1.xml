@@ -189,6 +189,17 @@
                         android:layout_marginTop="10dp"
                         android:id="@+id/check_points"
                         android:gravity="center_vertical"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:padding="5dp"
+                        android:id="@+id/txtNonUsable"
+                        android:textSize="@dimen/extra_small_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        />
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

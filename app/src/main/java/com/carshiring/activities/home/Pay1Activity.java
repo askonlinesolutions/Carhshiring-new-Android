@@ -83,7 +83,7 @@ public class Pay1Activity extends AppBaseActivity implements CountryAdapter.OnIt
     ActionBar actionBar;
 
     private TextView txtPay, txtTotalAmyVal,txtDob,txtPAyAmt,txtWalletBal,txtPointValueAmt, txtWalletValueAmt,
-            txtCoupanValue,txtPointVal,txtFullProAmt, txtEarnedPoint, txtApply,txtExtraCharge;
+            txtCoupanValue,txtPointVal,txtFullProAmt, txtEarnedPoint, txtApply,txtExtraCharge,txtNonUsablePoint;
     private CheckBox txtcheckPoint,txtCheckPay, txtCheckWallet;
     private String price="", email="",sdk_token="";
     private FortCallBackManager fortCallback;
@@ -112,7 +112,7 @@ Merchant Identifier: daouwTJI
     private List<WalletHistoryData> walletHistoryData = new ArrayList<>();
     private List<PointHistoryData>pointHistoryData = new ArrayList<>();
     private double creditAmt, debitAmt,walletAmt, totalDebit, totalPrice,totalCredit,totalPoint, earnedPointValue,totalDebitPoint,
-            totalCreditPoint, creditPoint,debitPoint,couponvalue, payfortAmt, discountvalue,pointBal;
+            totalCreditPoint, creditPoint,debitPoint,couponvalue, payfortAmt, discountvalue,pointBal, nonUsablePoint;
     private EditText edtCoupon;
     private Gson gson = new Gson();
     boolean isCouponApplied;
@@ -160,6 +160,8 @@ Merchant Identifier: daouwTJI
             protection_val =String.valueOf( CarDetailActivity.fullAmtValue);
         }*/
 //        extraData = BookCarActivity.extraData;
+
+        txtNonUsablePoint = findViewById(R.id.txtNonUsable);
         fullProtectionLayout = findViewById(R.id.activity_pay_full_pro_layout);
         edtCoupon = findViewById(R.id.activity_pay_edtCoupon);
         txtEarnedPoint = findViewById(R.id.txtEarnedPoint);
@@ -228,127 +230,121 @@ Merchant Identifier: daouwTJI
                 user_id = userDetails.getUser_id();
             }
         }
-        txtApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (tinyDB.contains("login_data")){
-                    String data = tinyDB.getString("login_data");
-                    userDetails = gson.fromJson(data, UserDetails.class);
-                    MainActivity.logout.setTitle(getResources().getString(R.string.logout));
-                    if (userDetails.getUser_id()!=null){
-                        user_id = userDetails.getUser_id();
-                    }
+        txtApply.setOnClickListener(view -> {
+            if (tinyDB.contains("login_data")){
+                String data = tinyDB.getString("login_data");
+                userDetails = gson.fromJson(data, UserDetails.class);
+                MainActivity.logout.setTitle(getResources().getString(R.string.logout));
+                if (userDetails.getUser_id()!=null){
+                    user_id = userDetails.getUser_id();
                 }
-                coupoun = edtCoupon.getText().toString().trim();
-                if (user_id!=null&&user_id.length()>0){
-                    if (!coupoun.isEmpty()){
-                        txtWalletValueAmt.setVisibility(View.GONE);
-                        if (fullprotection.equalsIgnoreCase("yes")){
-                            if (price!=null){
-                                totalPrice = Double.parseDouble(price);
-                                totalPrice = Double.parseDouble(price)+Double.parseDouble(protection_val);
-                            }
-                        } else {
-                            if (price!=null){
-                                totalPrice = Double.parseDouble(price);
-                            }
+            }
+            coupoun = edtCoupon.getText().toString().trim();
+            if (user_id!=null&&user_id.length()>0){
+                if (!coupoun.isEmpty()){
+                    txtWalletValueAmt.setVisibility(View.GONE);
+                    if (fullprotection.equalsIgnoreCase("yes")){
+                        if (price!=null){
+                            totalPrice = Double.parseDouble(price);
+                            totalPrice = Double.parseDouble(price)+Double.parseDouble(protection_val);
                         }
-                        validateCoupon(coupoun);
-                        txtCheckPay.setChecked(false);
-                        txtCheckWallet.setChecked(false);
-                        txtcheckPoint.setChecked(false);
-                        txtPointValueAmt.setVisibility(View.GONE);
                     } else {
-                        Utility.message(getApplication(), getResources().getString(R.string.enterCoupn));
+                        if (price!=null){
+                            totalPrice = Double.parseDouble(price);
+                        }
                     }
+                    validateCoupon(coupoun);
+                    txtCheckPay.setChecked(false);
+                    txtCheckWallet.setChecked(false);
+                    txtcheckPoint.setChecked(false);
+                    txtPointValueAmt.setVisibility(View.GONE);
                 } else {
-                    set = "login";
-                    setupoverlay(set);
-                    Utility.message(getApplicationContext(),"Login required...");
+                    Utility.message(getApplication(), getResources().getString(R.string.enterCoupn));
                 }
+            } else {
+                set = "login";
+                setupoverlay(set);
+                Utility.message(getApplicationContext(),"Login required...");
             }
         });
 
-        txtPay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final TinyDB tinyDB1 = new TinyDB(getApplicationContext());
+        txtPay.setOnClickListener(view -> {
+            final TinyDB tinyDB1 = new TinyDB(getApplicationContext());
 
-                if (tinyDB1.contains("login_data")){
-                    String data = tinyDB1.getString("login_data");
-                    userDetails = gson.fromJson(data, UserDetails.class);
-                    if (userDetails.getUser_id()!=null){
-                        user_id = userDetails.getUser_id();
-                    }
+            if (tinyDB1.contains("login_data")){
+                String data = tinyDB1.getString("login_data");
+                userDetails = gson.fromJson(data, UserDetails.class);
+                if (userDetails.getUser_id()!=null){
+                    user_id = userDetails.getUser_id();
                 }
-                if (tinyDB1.contains("login_data")) {
-                    if (userDetails!=null&&userDetails.getUser_lname() == null || userDetails.getUser_lname().length() == 0) {
-                        set = "update_profile";
-                        setupoverlay(set);
+            }
+            if (tinyDB1.contains("login_data")) {
+                if (userDetails!=null&&userDetails.getUser_lname() == null || userDetails.getUser_lname().length() == 0) {
+                    set = "update_profile";
+                    setupoverlay(set);
+                }
+                else {
+                    acName = "";
+                    if (userDetails!=null&&userDetails.getUser_id()!=null){
+                        user_id = userDetails.getUser_id();
+                        name = userDetails.getUser_name();
+                        sarname = (String) userDetails.getUser_lname();
+                        number = userDetails.getUser_phone();
+                        email = userDetails.getUser_email();
+                        address = userDetails.getUser_address();
+                        city = (String) userDetails.getUser_city();
+                        zipcode = userDetails.getUser_zipcode();
+                        countrycode = (String) userDetails.getUser_country();
+                        dob = userDetails.getUser_dob();
+                        user_age = userDetails.getUser_age();
                     }
-                    else {
-                        acName = "";
-                        if (userDetails!=null&&userDetails.getUser_id()!=null){
-                            user_id = userDetails.getUser_id();
-                            name = userDetails.getUser_name();
-                            sarname = (String) userDetails.getUser_lname();
-                            number = userDetails.getUser_phone();
-                            email = userDetails.getUser_email();
-                            address = userDetails.getUser_address();
-                            city = (String) userDetails.getUser_city();
-                            zipcode = userDetails.getUser_zipcode();
-                            countrycode = (String) userDetails.getUser_country();
-                            dob = userDetails.getUser_dob();
-                            user_age = userDetails.getUser_age();
-                        }
-                        if (user_age!=null ){
-                            if (tinyDB1.getBoolean("isSkipLogin")){
-                                if (tinyDB1.getString("dAge")!=null && tinyDB1.getString("dAge").length()==0){
-                                    final Calendar c = Calendar.getInstance();
-                                    int mYear = Calendar.getInstance().get(Calendar.YEAR) - Integer.parseInt(driver_age);
-                                    int mMonth = c.get(Calendar.MONTH);
-                                    int mDay = c.get(Calendar.DAY_OF_MONTH);
-                                    String month, day ;
-                                    if (mMonth<10){
-                                        month = "0"+(mMonth+1);
-                                    } else month = (mMonth+1)+"";
+                    if (user_age!=null ){
+                        if (tinyDB1.getBoolean("isSkipLogin")){
+                            if (tinyDB1.getString("dAge")!=null && tinyDB1.getString("dAge").length()==0){
+                                final Calendar c = Calendar.getInstance();
+                                int mYear = Calendar.getInstance().get(Calendar.YEAR) - Integer.parseInt(driver_age);
+                                int mMonth = c.get(Calendar.MONTH);
+                                int mDay = c.get(Calendar.DAY_OF_MONTH);
+                                String month, day ;
+                                if (mMonth<10){
+                                    month = "0"+(mMonth+1);
+                                } else month = (mMonth+1)+"";
 
-                                    if (mDay<10){
-                                        day = "0"+mDay;
-                                    } else day = mDay+"";
-                                    dob = mYear+ "-" + month  + "-" + day;
-                                    pay();
-                                } else if (user_age.equals(driver_age)){
-                                    /*dob = dateFormat(dob);*/
+                                if (mDay<10){
+                                    day = "0"+mDay;
+                                } else day = mDay+"";
+                                dob = mYear+ "-" + month  + "-" + day;
+                                pay();
+                            } else if (user_age.equals(driver_age)){
+                                /*dob = dateFormat(dob);*/
 
+                                pay();
+                            } else {
+                                ageDialog();
+                            }
+                        } else {
+                            if (tinyDB1.getString("dAge")!=null && tinyDB1.getString("dAge").length()==0){
+                                final Calendar c = Calendar.getInstance();
+                               /* int mYear = Calendar.getInstance().get(Calendar.YEAR) - Integer.parseInt(driver_age);
+                                int mMonth = c.get(Calendar.MONTH);
+                                int mDay = c.get(Calendar.DAY_OF_MONTH);*/
+                                /*dob= dateFormat(dob);*/
+                                pay();
+                            }
+                            else {
+                                if (user_age.equals(driver_age)){
+                                    /*dob= dateFormat(dob);*/
                                     pay();
                                 } else {
                                     ageDialog();
                                 }
-                            } else {
-                                if (tinyDB1.getString("dAge")!=null && tinyDB1.getString("dAge").length()==0){
-                                    final Calendar c = Calendar.getInstance();
-                                   /* int mYear = Calendar.getInstance().get(Calendar.YEAR) - Integer.parseInt(driver_age);
-                                    int mMonth = c.get(Calendar.MONTH);
-                                    int mDay = c.get(Calendar.DAY_OF_MONTH);*/
-                                    /*dob= dateFormat(dob);*/
-                                    pay();
-                                }
-                                else {
-                                    if (user_age.equals(driver_age)){
-                                        /*dob= dateFormat(dob);*/
-                                        pay();
-                                    } else {
-                                        ageDialog();
-                                    }
-                                }
                             }
                         }
                     }
-                } else {
-                    set = "login";
-                    setupoverlay(set);
                 }
+            } else {
+                set = "login";
+                setupoverlay(set);
             }
         });
 
@@ -1114,6 +1110,26 @@ Sha request and response pharse
                             final JSONObject jsonObject = new JSONObject(msg);
                             if (jsonObject.has("status")){
                                 if (jsonObject.getBoolean("status")){
+                                    // tested with manual supplier
+                                    /* String booking = null;
+                                            try {
+                                                JSONObject jsonObject1 = jsonObject.getJSONObject("response");
+
+                                                booking = jsonObject1.getString("booking_id");
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                            if (couponvalue==100){
+                                                earnPoint="0.0";
+                                                creditPoint(booking,user_id,earnPoint);
+                                            } else {
+                                                if (booking!=null&&booking.length()>0){
+                                                    creditPoint(booking,user_id,earnPoint);
+                                                }
+                                            }*/
+
+
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -1381,17 +1397,28 @@ Sha request and response pharse
                             }
                             if (walletHistoryData1.get_$BookingPointType184().equals("credit")){
                                 String debit = walletHistoryData1.get_$BookingPoint18();
-                                creditPoint = Double.parseDouble(debit);
-                                totalCreditPoint+= creditPoint;
+
+                                if (walletHistoryData1.getUse_point()==1){
+
+                                    creditPoint = Double.parseDouble(debit);
+                                    totalCreditPoint+= creditPoint;
+                                } else {
+                                    creditPoint = Double.parseDouble(debit);
+                                    nonUsablePoint+= creditPoint;
+                                }
                             }
                         }
-                        totalPoint = totalCreditPoint-totalDebitPoint;
+
+                        Log.d(TAG, "onResponse: "+nonUsablePoint);
+                        txtNonUsablePoint.setVisibility(View.VISIBLE);
+                        txtNonUsablePoint.setText("Non usable points : "+nonUsablePoint);
+                        totalPoint = totalCreditPoint/*-totalDebitPoint*/;
                         earnedPointValue = totalPoint*0.02;
 //                     txtPointVal.setText(String.valueOf(totalPoint));
                         if (totalPoint>0){
                             txtcheckPoint.setVisibility(View.VISIBLE);
                             if (totalPoint>0.0){
-                                txtPointVal.setText("("+String.valueOf(df2.format(totalPoint))+" "
+                                txtPointVal.setText("("+ df2.format(totalPoint) +" "
                                         +getResources().getString(R.string.txtPointValue)+" is : "+curen
                                         /*+getResources().getString(R.string.txtPointValue)+" is : SAR "*/
                                         +Utility.convertCuurency(earnedPointValue, getApplicationContext())+")");
@@ -1411,6 +1438,7 @@ Sha request and response pharse
                             }
                         } else {
                             txtcheckPoint.setVisibility(View.GONE);
+
                         }
                     } else {
                         Log.d(TAG, "onResponse: "+response.body().msg);
@@ -1594,7 +1622,7 @@ Sha request and response pharse
             // attaching data adapter to spinner
             edtLicenseOrign.setAdapter(dataAdapter);
             edtLicenseOrign.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
+                    @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     String item = adapterView.getItemAtPosition(i).toString();
                     licenseorigin = (String) getKeyFromValue(SplashActivity.country, item);

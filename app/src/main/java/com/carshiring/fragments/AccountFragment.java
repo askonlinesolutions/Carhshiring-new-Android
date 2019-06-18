@@ -204,6 +204,9 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         RetroFitApis fitApis= RetrofitApiBuilder.getCargHiresapis();
         final Call<ApiResponse> walList = fitApis.pointHistory(user_id);
+
+        Log.d("TAG", "getPoint: "+walList.request().url());
+
         walList.enqueue(new Callback<ApiResponse>() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -232,7 +235,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                            totalPoint = totalDebitPoint-totalCreditPoint;
                        }
 */
-                        totalPoint = totalCreditPoint-totalDebitPoint;
+                        totalPoint = totalCreditPoint/*-totalDebitPoint*/;
 
                         txtPoint.setText(getResources().getString(R.string.points)+" : "+String.format("%.2f", Float.parseFloat(String.valueOf(totalPoint))));
 

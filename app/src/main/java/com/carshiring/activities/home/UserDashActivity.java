@@ -51,7 +51,8 @@ public class UserDashActivity extends AppBaseActivity {
 
     FrameLayout wallFrame;
     ImageView imgEdit,imgUser, imgUserWall;
-    TextView txtEmail, txtPhone,txtAddress, txtAge, txtDrvLnc, txtCreditPt, txtdebitPt,txtWalletAmt,txtPointValue, txtName;
+    TextView txtEmail, txtPhone,txtAddress, txtAge, txtDrvLnc, txtCreditPt, txtdebitPt,txtWalletAmt,
+            txtPointValue, txtName,txtNonUsablePoint;
     UserDetails userDetails = new UserDetails();
     Gson gson = new Gson();
     TinyDB tinyDB;
@@ -59,7 +60,8 @@ public class UserDashActivity extends AppBaseActivity {
     private String user_id, language,from_currency;
     public static List<WalletHistoryData>walletHistoryData = new ArrayList<>();
     public static List<PointHistoryData>pointHistoryData = new ArrayList<>();
-    double creditAmt, debitAmt,walletAmt, totalDebit, totalCredit,totalPoint,totalDebitPoint, totalCreditPoint, creditPoint, debitPoint;
+    double creditAmt, debitAmt,walletAmt, totalDebit, totalCredit,totalPoint,totalDebitPoint, totalCreditPoint,
+            creditPoint, debitPoint,nonUsablePoint;
     AppGlobal appGlobal=AppGlobal.getInstancess();
 
     @SuppressLint("SetTextI18n")
@@ -97,6 +99,7 @@ public class UserDashActivity extends AppBaseActivity {
         txtWalletAmt = findViewById(R.id.dash_profile_txtWalletValue);
         txtName = findViewById(R.id.dash_profile_txtName);
         txtPointValue = findViewById(R.id.dash_profile_txtpointValue);
+        txtNonUsablePoint = findViewById(R.id.txtNonUsable);
 
 //        get wallet and point value
         getWal();
@@ -120,14 +123,11 @@ public class UserDashActivity extends AppBaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -368,12 +368,18 @@ public class UserDashActivity extends AppBaseActivity {
                             }
                             if (walletHistoryData1.get_$BookingPointType184().equals("credit")){
                                 String debit = walletHistoryData1.get_$BookingPoint18();
-                                creditPoint = Double.parseDouble(debit);
-                                totalCreditPoint+= creditPoint;
+
+                                if (walletHistoryData1.getUse_point()==1){
+                                    creditPoint = Double.parseDouble(debit);
+                                    totalCreditPoint+= creditPoint;
+                                } else {
+                                    creditPoint = Double.parseDouble(debit);
+                                    nonUsablePoint+= creditPoint;
+                                }
                             }
                         }
                         if (totalCreditPoint>totalDebitPoint){
-                            totalPoint = totalCreditPoint-totalDebitPoint;
+                            totalPoint = totalCreditPoint/*-totalDebitPoint*/;
                         }
                       /* else {
                            totalPoint = totalDebitPoint-totalCreditPoint;
@@ -385,13 +391,14 @@ public class UserDashActivity extends AppBaseActivity {
                         } else {
                             txtPointValue.setText(String.valueOf(0.0));
                         }*/
-                        totalPoint = totalCreditPoint-totalDebitPoint;
+                        totalPoint = totalCreditPoint/*-totalDebitPoint*/;
+                        txtNonUsablePoint.setText("Non usable points : "+nonUsablePoint);
 
                         txtPointValue.setText(getResources().getString(R.string.points)+" : "+String.format("%.2f", Float.parseFloat(String.valueOf(totalPoint))));
 
                         Log.d("TAG", "onResponse: totalDebit"+totalCreditPoint+"\n"+totalPoint);
-                        txtCreditPt.setText(getResources().getString(R.string.txtCredit)+" : "+ String.valueOf(df2.format(totalCreditPoint)));
-                        txtdebitPt.setText(getResources().getString(R.string.txtDebit)+" : "+ String.valueOf(df2.format(totalDebitPoint)));
+                        txtCreditPt.setText(getResources().getString(R.string.txtCredit)+" : "+ df2.format(totalCreditPoint));
+                        txtdebitPt.setText(getResources().getString(R.string.txtDebit)+" : "+ df2.format(totalDebitPoint));
                     } else {
                         //  Toast.makeText(UserDashActivity.this, ""+response.body().message, Toast.LENGTH_SHORT).show();
                     }

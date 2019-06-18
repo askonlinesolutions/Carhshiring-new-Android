@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Carhshiring-new-Android.iml" filepath="$PROJECT_DIR$/Carhshiring-new-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/FORTSDKv1.4.2/FORTSDKv1.4.2.iml" filepath="$PROJECT_DIR$/FORTSDKv1.4.2/FORTSDKv1.4.2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/carshiring.iml" filepath="$PROJECT_DIR$/carshiring.iml" />
       <module fileurl="file://$PROJECT_DIR$/gd_helper-release/gd_helper-release.iml" filepath="$PROJECT_DIR$/gd_helper-release/gd_helper-release.iml" />
     </modules>
   </component>
