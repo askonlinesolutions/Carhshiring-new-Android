@@ -1108,7 +1108,7 @@ Sha request and response pharse
                             if (jsonObject.has("status")){
                                 if (jsonObject.getBoolean("status")){
                                     // tested with manual supplier
-                                    /* String booking = null;
+                                   /*  String booking = null;
                                             try {
                                                 JSONObject jsonObject1 = jsonObject.getJSONObject("response");
 
@@ -1124,8 +1124,8 @@ Sha request and response pharse
                                                 if (booking!=null&&booking.length()>0){
                                                     creditPoint(booking,user_id,earnPoint);
                                                 }
-                                            }*/
-
+                                            }
+*/
 
                                     runOnUiThread(() -> {
                                         if (jsonObject.has("bookingStatus")){

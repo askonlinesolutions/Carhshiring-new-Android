@@ -16,10 +16,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitApiBuilder {
 
-//    public final static String CarHires_BASE_URL = "http://carshiring.com/webservice/";//for live
-    public final static String CarHires_BASE_URL = "https://carshiring.com/demo/webservice/"; // demo
-//        private final static String CarGates_BASE_URL = "http://carsgates.com/"; // for live
-    private final static String CarGates_BASE_URL = "https://carsgates.com/demo/"; // for demo
+    public final static String CarHires_BASE_URL = "http://carshiring.com/webservice/";//for live
+//    public final static String CarHires_BASE_URL = "https://carshiring.com/demo/webservice/"; // demo
+        private final static String CarGates_BASE_URL = "http://carsgates.com/"; // for live
+//    private final static String CarGates_BASE_URL = "https://carsgates.com/demo/"; // for demo
 
     public final static String CarGates_BASE_WEBSERVICE_URL = CarGates_BASE_URL +"webservices/";
 //    public final static String IMG_BASE_URL ="https://carshiring.com/upload/"; // for live
