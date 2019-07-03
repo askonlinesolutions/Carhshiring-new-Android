@@ -783,7 +783,6 @@ Merchant Identifier: daouwTJI
 
         fortRequest.setRequestMap(requestMap);
         boolean showLoading= true;
-/*
         try {
             FortSdk.getInstance().registerCallback(this, fortRequest,FortSdk.ENVIRONMENT.PRODUCTION,
                     5, fortCallback,showLoading, new FortInterfaces.OnTnxProcessed() {
@@ -800,10 +799,8 @@ Merchant Identifier: daouwTJI
                         @Override
                         public void onSuccess(Map<String, Object> map, Map<String, Object> map1) {
                             Log.d(TAG, "onSuccess: "+map1.toString());
-                          */
-/*  Toast.makeText(getApplicationContext(), (String) map1.get("response_message"),
-                                    Toast.LENGTH_SHORT).show();*//*
-
+                          /*  Toast.makeText(getApplicationContext(), (String) map1.get("response_message"),
+                                    Toast.LENGTH_SHORT).show();*/
                             transaction_id = (String) map1.get("fort_id");
                             booking_payfort = totalPayableAmt+"";
                             merchant_reference = (String) map1.get("merchant_reference");
@@ -824,7 +821,6 @@ Merchant Identifier: daouwTJI
         } catch (Exception e) {
             e.printStackTrace();
         }
-*/
     }
 
     private void createFORTMobileSDKToken(String language) {
