@@ -93,14 +93,15 @@ public class Pay1Activity extends AppBaseActivity implements CountryAdapter.OnIt
 new access code
 Merchant Identifier: daouwTJI
 */
-
-/*    final String ACCESS_TOKEN =  "NCszWushUPEjueRWnLti";
+// for live
+    final String ACCESS_TOKEN =  "5JCpZWu9J5Hlz3IoK1KN";
     final String MERCHANT_IDENTIFIER = "daouwTJI";
-    final String REQUEST_PHRASE = "1985" ;*/
+    final String REQUEST_PHRASE = "1985" ;
 
-    final String ACCESS_TOKEN =  "qa2s6awTpBNc04Q65T8v";
-    final String MERCHANT_IDENTIFIER =  "GjitDYjm";
-    final String REQUEST_PHRASE = "PASS" ;
+/*//for test
+    final String ACCESS_TOKEN = "qa2s6awTpBNc04Q65T8v";
+    final String MERCHANT_IDENTIFIER = "GjitDYjm";
+    final String REQUEST_PHRASE = "PASS" ;*/
 
     private LinearLayout fullProtectionLayout;
     private String name="",sarname="",set="",number="",address="",city="",zipcode="",countrycode="",car_id="",
@@ -153,6 +154,9 @@ Merchant Identifier: daouwTJI
         pick_date = SearchCarFragment.pick_date;
         drop_city = SearchCarFragment.dropName;
         drop_date = SearchCarFragment.drop_date;
+
+
+        fortCallback = FortCallback.Factory.create();
 
 //        comment for testing
         /*fullprotection = BookCarActivity.fullProtection;
@@ -471,15 +475,6 @@ Merchant Identifier: daouwTJI
         return bookingRequest;
     }
 
-    /*0pyu8A1DPoNW1rpzeheA-
-access code
-Merchant Identifier: daouwTJI
-check these asap
-SHA -256
-1985
-for both
-Sha request and response pharse
-*/
     int count =1;
     @Override
     protected void onStart() {
@@ -729,14 +724,11 @@ Sha request and response pharse
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -776,6 +768,7 @@ Sha request and response pharse
         requestMap.put("language",LANGUAGE);
         requestMap.put("customer_email",CUSTOMER_EMAIL);
         requestMap.put("sdk_token",sdk_token);
+        Log.d(TAG, "requestOperation: "+requestMap);
 
 //        requestMap.put("payment_option","AMEX");
 //        requestMap.put("eci",ECI);
@@ -789,10 +782,10 @@ Sha request and response pharse
 //        requestMap.put("return_url",command);
 
         fortRequest.setRequestMap(requestMap);
-        fortCallback = FortCallback.Factory.create();
         boolean showLoading= true;
+/*
         try {
-            FortSdk.getInstance().registerCallback(this, fortRequest,FortSdk.ENVIRONMENT.TEST,
+            FortSdk.getInstance().registerCallback(this, fortRequest,FortSdk.ENVIRONMENT.PRODUCTION,
                     5, fortCallback,showLoading, new FortInterfaces.OnTnxProcessed() {
                         @Override
                         public void onCancel(Map<String, Object> map, Map<String, Object> map1) {
@@ -807,8 +800,10 @@ Sha request and response pharse
                         @Override
                         public void onSuccess(Map<String, Object> map, Map<String, Object> map1) {
                             Log.d(TAG, "onSuccess: "+map1.toString());
-                          /*  Toast.makeText(getApplicationContext(), (String) map1.get("response_message"),
-                                    Toast.LENGTH_SHORT).show();*/
+                          */
+/*  Toast.makeText(getApplicationContext(), (String) map1.get("response_message"),
+                                    Toast.LENGTH_SHORT).show();*//*
+
                             transaction_id = (String) map1.get("fort_id");
                             booking_payfort = totalPayableAmt+"";
                             merchant_reference = (String) map1.get("merchant_reference");
@@ -829,6 +824,7 @@ Sha request and response pharse
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
     }
 
     private void createFORTMobileSDKToken(String language) {
@@ -857,12 +853,12 @@ Sha request and response pharse
             e.printStackTrace();
         }
 
+        Log.d(TAG, "createFORTMobileSDKToken: "+jsonObject);
         RequestBody body = RequestBody.create(mediaType, jsonObject.toString());
         Request request;
         request = new Request.Builder()
-//                for test ; URL https://sbpaymentservices.payfort.com/FortAPI/paymentApi
-//                .url("https://paymentservices.payfort.com/FortAPI/paymentApi")
-                .url("https://sbpaymentservices.payfort.com/FortAPI/paymentApi")
+               .url("https://paymentservices.payfort.com/FortAPI/paymentApi") // for live
+        //.url("https://sbpaymentservices.payfort.com/FortAPI/paymentApi") // for test
                 .method("POST", RequestBody.create(null, new byte[0]))
                 .post(body)
                 .addHeader("Content-Type", "application/json; charset=utf8")
@@ -871,18 +867,20 @@ Sha request and response pharse
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                String mMessage = e.getMessage().toString();
+                String mMessage = e.getMessage();
                 Log.w("failure Response", mMessage);
                 //call.cancel();
             }
             @Override
             public void onResponse(Response response) throws IOException {
                 String mMessage = response.body().string();
+                Log.w("success Response", mMessage);
+
                 if (response.isSuccessful()){
                     try {
                         JSONObject json = new JSONObject(mMessage);
-                        Gson gson = new Gson();
-                        TokenResponse tokenResponse = new TokenResponse();
+                         Gson gson = new Gson();
+                        TokenResponse tokenResponse;
                         tokenResponse = gson.fromJson(json.toString(),TokenResponse.class);
                         sdk_token = tokenResponse.getSdk_token();
 
@@ -1769,7 +1767,7 @@ Sha request and response pharse
     public void dob_pick() {
         // Get Current Date
         final Calendar c = Calendar.getInstance();
-        int mYear = Calendar.getInstance().get(Calendar.YEAR) - 18;
+        int mYear = Calendar.getInstance().get(Calendar.YEAR) - 21;
         int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 

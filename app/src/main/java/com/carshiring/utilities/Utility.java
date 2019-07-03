@@ -30,7 +30,9 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.mukesh.tinydb.TinyDB;
 
 import java.io.ByteArrayOutputStream;
+import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -148,6 +150,22 @@ public class Utility {
             throw new RuntimeException(ex);
         }
     }
+
+/*
+    public static String getSHA256Hash(String base) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(base.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            return String.format("%0" + (messageDigest.length * 2) + 'x', new BigInteger(1, messageDigest));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+*/
 
     public static Boolean isNetworkConnected(Context context)
     {
